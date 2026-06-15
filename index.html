@@ -184,7 +184,7 @@ const SUPABASE_KEY='sb_publishable_e8szBJdE-_fz7i-S7FG6nA_WeqAvESC';
 const BUCKET='tamir-fotograflar';
 const db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const $=id=>document.getElementById(id);
-let loggedUser=localStorage.getItem('hg_user')||'', loggedUsername=localStorage.getItem('hg_username')||'', activeModule='tamir', reportMode=false, viewMode='active', records=[], otherRecords=[], current=null, currentStatus='Bekliyor', currentPhotoUrl='', removePhotoFlag=false;
+let loggedUser=localStorage.getItem('hg_user')||'', loggedUsername=localStorage.getItem('hg_username')||'', activeModule='tamir', reportMode=false, reportScope='genel', viewMode='active', records=[], otherRecords=[], current=null, currentStatus='Bekliyor', currentPhotoUrl='', removePhotoFlag=false;
 const cfg={
  tamir:{table:'tamir_kayitlari',title:'Tamir Kayıtları',newTitle:'Yeni Tamir',product:['Yüzük','Bileklik','Kolye','Küpe','Saat','Diğer'],statuses:['Bekliyor','İşlemde','Hazır','Teslim Edildi'],opLabel:'Yapılacak işlem',showOrder:false},
  siparis:{table:'siparis_kayitlari',title:'Sipariş Kayıtları',newTitle:'Yeni Sipariş',product:['Yüzük','Bileklik','Kolye','Küpe','Set','Özel Üretim','Diğer'],statuses:['Bekliyor','Üretimde','Hazır','Teslim Edildi'],opLabel:'Sipariş açıklaması',showOrder:true}
