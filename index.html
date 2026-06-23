@@ -35,6 +35,14 @@ body.dark-mode .fab-option:hover{background:#123d36}
 @media(max-width:640px){.fab-wrap{right:16px;bottom:16px}.fab-main{width:58px;height:58px;font-size:31px}.fab-menu{min-width:165px}.fab-option{font-size:13px;padding:10px}}
 
 </style>
+  <!-- PWA / Mobil Uygulama Ayarları -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#026532">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Hasan Gold">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
 </head>
 <body>
 <div id="splashScreen" style="position:fixed;inset:0;background:#FAFAEB;display:flex;align-items:center;justify-content:center;z-index:9999;animation:fadeIn .8s;transition:opacity .35s ease;">
@@ -365,5 +373,16 @@ if(loggedUser){
 db.channel('hg-live').on('postgres_changes',{event:'*',schema:'public',table:'tamir_kayitlari'},load).on('postgres_changes',{event:'*',schema:'public',table:'siparis_kayitlari'},load).subscribe();setInterval(load,20000);
 </script>
 </div>
+<script>
+  // PWA Service Worker
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js").catch((err) => {
+        console.log("Service worker kayıt hatası:", err);
+      });
+    });
+  }
+</script>
+
 </body>
 </html>
